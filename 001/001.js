@@ -27,30 +27,34 @@ function* getNumbers2(startNum = 2000, endNum = 3200) {
   }
 }
 
-const generator = getNumbers2();
-const numbers2 = [...generator].join(",");
+const numbers2 = [...getNumbers2()].join(",");
 console.log(numbers2);
 
 // ************************************************************ //
 // with using while loop:
 
-// const generator = getNumbers2();
-// const numbers = [];
+function getNumbers2a(startNum = 2000, endNum = 3200) {
+  const generator = getNumbers2(startNum, endNum);
+  const numbers = [];
 
-// let number = generator.next();
-// while (!number.done) {
-//   numbers.push(number.value);
-//   number = generator.next();
-// }
-// console.log(numbers.join(","));
+  let number = generator.next();
+  while (!number.done) {
+    numbers.push(number.value);
+    number = generator.next();
+  }
+
+  console.log(numbers.join(","));
+}
 
 // ************************************************************ //
 // with for-of loop
 
-// const generator = getNumbers2();
-// const numbers = [];
+function getNumbers2b(startNum = 2000, endNum = 3200) {
+  const generator = getNumbers2(startNum, endNum);
+  const numbers = [];
 
-// for (let number of generator) {
-//   numbers.push(number);
-// }
-// console.log(numbers.join(","));
+  for (let number of generator) {
+    numbers.push(number);
+  }
+  console.log(numbers.join(","));
+}
