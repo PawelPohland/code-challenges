@@ -1,35 +1,16 @@
-def vovel_counter(text):
-    vovels = 0
+def hello_world(number, hello_num=3, world_num=5):
+    if number % (hello_num * world_num) == 0:
+        return "HelloWorld"
+    elif number % hello_num == 0:
+        return "Hello"
+    elif number % world_num == 0:
+        return "World"
 
-    for char in text:
-        if char.lower() in "aeiouy":
-            vovels += 1
-
-    return vovels
+    return number
 
 
 if __name__ == "__main__":
-    zen = """The Zen of Python, by Tim Peters
+    numbers = [3, 5, 15, 11]
 
-Beautiful is better than ugly.
-Explicit is better than implicit.
-Simple is better than complex.
-Complex is better than complicated.
-Flat is better than nested.
-Sparse is better than dense.
-Readability counts.
-Special cases aren't special enough to break the rules.
-Although practicality beats purity.
-Errors should never pass silently.
-Unless explicitly silenced.
-In the face of ambiguity, refuse the temptation to guess.
-There should be one-- and preferably only one --obvious way to do it.
-Although that way may not be obvious at first unless you're Dutch.
-Now is better than never.
-Although never is often better than *right* now.
-If the implementation is hard to explain, it's a bad idea.
-If the implementation is easy to explain, it may be a good idea.
-Namespaces are one honking great idea -- let's do more of those!"""
-
-    for line in zen.splitlines(keepends=False):
-        print(f"[{str(vovel_counter(line)).zfill(3)}] : {line}")
+    for number in numbers:
+        print(f"hello_world({number}) => {hello_world(number)}")
