@@ -1,15 +1,15 @@
-def lowercase_letters(names : list) -> tuple:
+def lowercase_letters(names: list) -> tuple:
     lowercase_names = ()
-    
+
     for name in names:
         if name.islower():
             lowercase_names += (name,)
-    
-    return sorted(lowercase_names, reverse=True)
+
+    return tuple(sorted(lowercase_names, reverse=True))
 
 
-def lowercase_letters2(names : list) -> tuple:
-    return sorted(tuple(filter(lambda name: name.islower(), names)), reverse=True)
+def lowercase_letters2(names: list) -> tuple:
+    return tuple(sorted(tuple(filter(lambda name: name.islower(), names)), reverse=True))
 
 
 if __name__ == "__main__":
